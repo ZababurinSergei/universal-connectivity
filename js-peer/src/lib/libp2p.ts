@@ -28,15 +28,24 @@ export async function startLibp2p() {
   localStorage.debug = 'ui*,libp2p*,-libp2p:connection-manager*,-*:trace'
 
   const delegatedClient = createDelegatedRoutingV1HttpApiClient('https://delegated-ipfs.dev')
-  const { bootstrapAddrs, relayListenAddrs } = await getBootstrapMultiaddrs(delegatedClient)
+  let { bootstrapAddrs, relayListenAddrs } = await getBootstrapMultiaddrs(delegatedClient)
   log('starting libp2p with bootstrapAddrs %o and relayListenAddrs: %o', bootstrapAddrs, relayListenAddrs)
 
+  if(bootstrapAddrs.length === 0) {
+    bootstrapAddrs = [
+      '/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN',
+      '/dnsaddr/bootstrap.libp2p.io/p2p/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb',
+      '/dnsaddr/bootstrap.libp2p.io/p2p/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt',
+      '/ip4/104.131.131.82/tcp/4001/p2p/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ'
+    ]
+  }
   const libp2p = await createLibp2p({
     addresses: {
       listen: [
         // 👇 Listen for webRTC connection
         '/webrtc',
-        // Use the app's bootstrap nodes as circuit relays
+        '/ip4/0.0.0.0/tcp/0/ws',
+         // Use the app's bootstrap nodes as circuit relays
         ...relayListenAddrs,
       ],
     },

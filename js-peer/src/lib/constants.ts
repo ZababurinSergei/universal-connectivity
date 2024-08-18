@@ -8,7 +8,7 @@ export const CIRCUIT_RELAY_CODE = 290
 
 // 👇 App specific dedicated bootstrap PeerIDs
 // Their multiaddrs are ephemeral so peer routing is used to resolve multiaddr
-export const WEBRTC_BOOTSTRAP_PEER_ID = "12D3KooWGahRw3ZnM4gAyd9FK75v4Bp5keFYTvkcAwhpEm28wbV3"
-export const WEBTRANSPORT_BOOTSTRAP_PEER_ID = "12D3KooWFhXabKDwALpzqMbto94sB7rvmZ6M28hs9Y9xSopDKwQr"
+export const WEBRTC_BOOTSTRAP_PEER_ID = "12D3KooWAUBrDw3cdp3MCsJ3CH4hi4zrUnpRUwnL4KZaeN38sjA2"
+export const WEBTRANSPORT_BOOTSTRAP_PEER_ID = "12D3KooWAUBrDw3cdp3MCsJ3CH4hi4zrUnpRUwnL4KZaeN38sjA2"
 
 export const BOOTSTRAP_PEER_IDS = [WEBTRANSPORT_BOOTSTRAP_PEER_ID, WEBRTC_BOOTSTRAP_PEER_ID]

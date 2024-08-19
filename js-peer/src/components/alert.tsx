@@ -5,10 +5,10 @@ import {
   DialogTitle as HeadlessDialogTitle,
   Transition as HeadlessTransition,
   TransitionChild as HeadlessTransitionChild,
-  type DialogProps as HeadlessDialogProps,
+  type DialogProps as HeadlessDialogProps
 } from '@headlessui/react'
 import clsx from 'clsx'
-import type React from 'react'
+import React from 'react'
 import { Text } from './text'
 
 const sizes = {
@@ -20,40 +20,40 @@ const sizes = {
   '2xl': 'sm:max-w-2xl',
   '3xl': 'sm:max-w-3xl',
   '4xl': 'sm:max-w-4xl',
-  '5xl': 'sm:max-w-5xl',
+  '5xl': 'sm:max-w-5xl'
 }
 
-export function Alert({
+export function Alert ({
   open,
   onClose,
   size = 'md',
   className,
   children,
   ...props
-}: { size?: keyof typeof sizes; children: React.ReactNode } & HeadlessDialogProps) {
+}: { size?: keyof typeof sizes, children: React.ReactNode } & HeadlessDialogProps) {
   return (
     <HeadlessTransition appear show={open} {...props}>
       <HeadlessDialog onClose={onClose}>
         <HeadlessTransitionChild
-          enter="ease-out duration-100"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-100"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+          enter='ease-out duration-100'
+          enterFrom='opacity-0'
+          enterTo='opacity-100'
+          leave='ease-in duration-100'
+          leaveFrom='opacity-100'
+          leaveTo='opacity-0'
         >
-          <div className="fixed inset-0 flex w-screen justify-center overflow-y-auto bg-zinc-950/15 px-2 py-2 focus:outline-0 sm:px-6 sm:py-8 lg:px-8 lg:py-16 dark:bg-zinc-950/50" />
+          <div className='fixed inset-0 flex w-screen justify-center overflow-y-auto bg-zinc-950/15 px-2 py-2 focus:outline-0 sm:px-6 sm:py-8 lg:px-8 lg:py-16 dark:bg-zinc-950/50' />
         </HeadlessTransitionChild>
 
-        <div className="fixed inset-0 w-screen overflow-y-auto pt-6 sm:pt-0">
-          <div className="grid min-h-full grid-rows-[1fr_auto_1fr] justify-items-center p-8 sm:grid-rows-[1fr_auto_3fr] sm:p-4">
+        <div className='fixed inset-0 w-screen overflow-y-auto pt-6 sm:pt-0'>
+          <div className='grid min-h-full grid-rows-[1fr_auto_1fr] justify-items-center p-8 sm:grid-rows-[1fr_auto_3fr] sm:p-4'>
             <HeadlessTransitionChild
-              enter="ease-out duration-100"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-100"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
+              enter='ease-out duration-100'
+              enterFrom='opacity-0 scale-95'
+              enterTo='opacity-100 scale-100'
+              leave='ease-in duration-100'
+              leaveFrom='opacity-100'
+              leaveTo='opacity-0'
             >
               <HeadlessDialogPanel
                 className={clsx(
@@ -72,7 +72,7 @@ export function Alert({
   )
 }
 
-export function AlertTitle({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
+export function AlertTitle ({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
   return (
     <HeadlessDialogTitle
       {...props}
@@ -84,7 +84,7 @@ export function AlertTitle({ className, ...props }: React.ComponentPropsWithoutR
   )
 }
 
-export function AlertDescription({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
+export function AlertDescription ({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
   return (
     <HeadlessDescription
       as={Text}
@@ -94,11 +94,11 @@ export function AlertDescription({ className, ...props }: React.ComponentPropsWi
   )
 }
 
-export function AlertBody({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
+export function AlertBody ({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
   return <div {...props} className={clsx(className, 'mt-4')} />
 }
 
-export function AlertActions({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
+export function AlertActions ({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
   return (
     <div
       {...props}
